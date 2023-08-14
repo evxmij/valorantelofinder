@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Riot ELO Bot</title>
 </head>
 <body>
     <h1>Riot ELO Bot</h1>
