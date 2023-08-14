@@ -22,7 +22,7 @@
     <h2>Установка</h2>
     <ol>
         <li>Клонируйте репозиторий:</li>
-        <pre><code>https://github.com/IcodedthiswhenIwasdrunk/valorantpalyeelofinder.git</code></pre>
+        <pre><code>https://github.com/IcodedthiswhenIwasdrunk/valorantelofinder.git</code></pre>
         <li>Установите зависимости:</li>
         <pre><code>pip install -r requirements.txt</code></pre>
         <li>Вставьте свой токен Telegram в settings.py:</li>
