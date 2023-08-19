@@ -1,4 +1,5 @@
 import telebot
+from telebot import types
 import requests
 from settings import TOKEN, valorant_region
 
@@ -9,8 +10,16 @@ user_data = {}
 
 @bot.message_handler(commands=['start'])
 def start(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    link_btn = types.KeyboardButton('🔗 Github Link')
+    markup.add(link_btn)
     user_data[message.chat.id] = {'step': 0}
-    bot.send_message(message.chat.id, "Привет!\nТут ты можешь узнать ранг по RiotID\nОтправь мне Riot ID(без #)\nНапример riot id valo#rant\nСначала отправь мне valo, а потом rant:)")
+    bot.send_message(message.chat.id, "Привет!\nТут ты можешь узнать ранг по RiotID\nОтправь мне Riot ID(без #)\nНапример riot id valo#rant\nСначала отправь мне valo, а потом rant:)", reply_markup=markup)
+
+@bot.message_handler(content_types=['text'])
+def get_git_link(message):
+    if message.text == '🔗 Github Link':
+        bot.send_message(message.from_user.id, "<a href='https://github.com/myscoutt/valorantelofinder'>Github</a>", parse_mode='HTML')
 
 @bot.message_handler(func=lambda message: user_data.get(message.chat.id, {}).get('step') == 0)
 def riot_id(message):
